@@ -6,11 +6,18 @@
     <ObjecVModel v-model="state.form"/>
     <button type="submit">Submit</button>
   </form>
+
+  <h1>Example 1: Use provide and inject in form</h1>
+  <form>
+    <ProvidAndInject/>
+    <button type="submit">Submit</button>
+  </form>
 </template>
 
 <script setup>
-import {reactive} from "vue";
+import {provide, reactive} from "vue";
 import ObjecVModel from "@/components/ObjecVModel.vue";
+import ProvidAndInject from "@/components/ProvidAndInject.vue";
 
 const state = reactive({
   form: {
@@ -19,6 +26,8 @@ const state = reactive({
     password: ''
   }
 })
+
+provide('form', state.form)
 </script>
 
 <style>
