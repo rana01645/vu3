@@ -1,17 +1,24 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Example 1: Use object as V-model</h1>
+  <form>
+    {{state.form}}
+    <ObjecVModel v-model="state.form"/>
+    <button type="submit">Submit</button>
+  </form>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import {reactive} from "vue";
+import ObjecVModel from "@/components/ObjecVModel.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+const state = reactive({
+  form: {
+    name: 'test',
+    email: '',
+    password: ''
   }
-}
+})
 </script>
 
 <style>
